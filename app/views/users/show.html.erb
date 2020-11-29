@@ -1,0 +1,16 @@
+<h1>PROFILE</h1>
+
+<p>
+  <% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar %>
+  <% end %>
+</p>
+
+<h2>NAME</h2>
+<p><%= @user.name %></p>
+<h2>AGE</h2>
+<p><%= @user.age %></p>
+<h2>Mail address</h2>
+<p><%= @user.email %></p>
+
+<p><%= link_to "Edit user", edit_user_registration_path %></p> 
