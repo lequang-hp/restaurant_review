@@ -1,4 +1,3 @@
 # README
 
-* Clone project
- ** git clone <url>
+* git clone <url>
