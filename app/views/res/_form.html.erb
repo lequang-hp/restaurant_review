@@ -1,0 +1,32 @@
+<%= form_with(model: re, local: true) do |form| %>
+  <% if re.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(re.errors.count, "error") %> prohibited this re from being saved:</h2>
+
+      <ul>
+        <% re.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+  
+  <div class="field">
+     <%= form.label :image %>
+     <%= form.file_field :image %><br>
+  </div>
+  
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

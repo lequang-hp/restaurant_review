@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+   <% if @re.image.attached? %>
+     <%= image_tag @re.image %>
+   <% end %>
+</p>
+ 
+<p>
+  <strong>Name:</strong>
+  <%= @re.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @re.address %>
+</p>
+
+<%= link_to 'Edit', edit_re_path(@re) %> |
+<%= link_to 'Back', res_path %>

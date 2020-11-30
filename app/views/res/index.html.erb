@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Your list restaurant</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @res.each do |re| %>
+      <tr>
+        <td><%= re.name %></td>
+        <td><%= re.address %></td>
+        <td><%= link_to 'Show', re %></td>
+        <td><%= link_to 'Edit', edit_re_path(re) %></td>
+        <td><%= link_to 'Destroy', re, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add new restaurant', new_re_path %>
