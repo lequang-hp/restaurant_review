@@ -16,5 +16,16 @@
   <%= @re.address %>
 </p>
 
+<p>
+  <strong>Related Post:</strong>
+  <% Post.all.each do |post|%>
+    <% if post.res_id == @re.id %>
+      <li>
+        <%= link_to post.title, post_path %> (<i><%= post.user.name %></i>)
+      </li>
+    <% end %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_re_path(@re) %> |
 <%= link_to 'Back', res_path %>
