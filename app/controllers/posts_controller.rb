@@ -2,7 +2,6 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :set_re, only: [:index, :show, :edit, :update]
   before_action :authenticate_user!
-  # before_action :set_res
 
   # GET /posts
   # GET /posts.json
@@ -30,7 +29,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    # @post.re = @re
 
     respond_to do |format|
       if @post.save
