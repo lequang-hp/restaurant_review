@@ -1,6 +1,24 @@
 <h1>Editing Post Comment</h1>
+<%= form_with(model: @post_comment, local: true) do |form| %>
+  <% if @post_comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post_comment.errors.count, "error") %> prohibited this post_comment from being saved:</h2>
 
-<%= render 'form', post_comment: @post_comment %>
+      <ul>
+        <% @post_comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'Show', @post_comment %> |
-<%= link_to 'Back', post_comments_path %>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

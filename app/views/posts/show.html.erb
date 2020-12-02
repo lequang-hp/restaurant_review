@@ -43,8 +43,10 @@
        <% @post.post_comment.each do |each_comment|%>
         <li><%= each_comment.comment %>
           (<i><%= each_comment.user.name %></i>)
-          <td><%= link_to 'Edit', edit_post_comment_path(@post) %></td> |
-          <td><%= link_to 'Destroy', @post_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if current_user.name == each_comment.user.name %>
+          <td><%= link_to 'Edit', edit_post_comment_path(each_comment) %></td> |
+          <td><%= link_to 'Destroy', each_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </li>
       <% end %>
     </ul>
