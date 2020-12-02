@@ -26,6 +26,27 @@
   <% end %>
 </p>
 
+<h2>Comment Form</h2>
+ <%= form_with(model: @post_comment, local: true) do |form| %>
+   <div class= "field">
+     <%= form.text_area :comment %>
+     <%= form.hidden_field :post_id, :value => @post.id %>
+     <%= form.hidden_field :user_id, :value => current_user.id %>
+   </div>
+   <div class="actions">
+     <%= form.submit %>
+   </div>
+<% end %>
+
+<h2>List comment</h2>
+    <ul>
+       <% @post.post_comment.each do |each_comment|%>
+        <li><%= each_comment.comment %>
+          (<i><%= each_comment.user.name %></i>)
+        </li>
+      <% end %>
+    </ul>
+
 <% if @post.user.name == current_user.name %>
   <%= link_to 'Edit', edit_post_path(@post) %> |
 <% end %>

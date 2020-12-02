@@ -1,4 +1,11 @@
-<h1>HOME PAGE</h1>
-<h2><%= link_to "List post", posts_path %></h2>
-
-<h2><%= link_to "List restaurant", res_path %></h2>
+<div style="width:100%;height: 530px;background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Sydney_Tower_Revolving_Restauarant.jpg/1024px-Sydney_Tower_Revolving_Restauarant.jpg)">
+    <div class="dropdown" style="text-align:center;">
+      <button type="button" class="btn btn-outline-warning dropdown-toggle" data-toggle="dropdown" style="margin-top: 200px;padding: 15px 32px;font-size: 16px;">
+        <b style="color: white;">Food review</b>
+      </button>
+      <div class="dropdown-menu">
+        <%= link_to "List post", posts_path, class: "dropdown-item" %>
+        <%= link_to "List restaurant", res_path, class: "dropdown-item" %>
+      </div>
+    </div>
+</div>

@@ -6,30 +6,37 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </head>
 
   <body>
-    <%= link_to "Home page", root_path %><br/>
-    <% if user_signed_in? %>
-       <p>Hi!, <%= current_user.email %></p>
-       <p>Hi!, <%= link_to current_user.name, users_show_path %></p>
-       <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-     <% else %>
-       <%= link_to "Sign in", new_user_session_path %>
-       <%= link_to "Sign up", new_user_registration_path %>
-     <% end %>
-    <hr>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <%= link_to "Home page", root_path, class: "nav-link" %>
+        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to current_user.name, users_show_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
+         
+        <% else %>
+          <li class="nav-item">
+             <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+          </li>
+          
+          <li class="nav-item">
+             <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+          </li>
+         
+        <% end %>
+      </ul>
+    </nav>
+
     <div class="container">
       <%= yield %>
     </div>
