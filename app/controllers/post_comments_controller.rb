@@ -28,10 +28,9 @@ class PostCommentsController < ApplicationController
 
     respond_to do |format|
       if @post_comment.save
-        format.html { redirect_to @post_comment, notice: 'Post comment was successfully created.' }
         new_url = "/posts/" + @post_comment.post_id.to_s
         format.html { redirect_to new_url, notice: 'Post comment was successfully created.' }
-        format.json { render :show, status: :created, location: @post_comment }
+        format.json { render :show, status: :created, location: @post}
       else
         format.html { render :new }
         format.json { render json: @post_comment.errors, status: :unprocessable_entity }
