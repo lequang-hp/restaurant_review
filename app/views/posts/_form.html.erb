@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :res_id %>
-    <%= form.number_field :res_id %>
+    <%= form.collection_select :res_id, Re.order(:name), :id, :name, include_blank: false %>
   </div>
   
  
