@@ -30,7 +30,7 @@ class PostCommentsController < ApplicationController
       if @post_comment.save
         new_url = "/posts/" + @post_comment.post_id.to_s
         format.html { redirect_to new_url, notice: 'Post comment was successfully created.' }
-        format.json { render :show, status: :created, location: @post}
+        format.json { render :show, status: :created, location: @post_comment}
       else
         format.html { render :new }
         format.json { render json: @post_comment.errors, status: :unprocessable_entity }
@@ -43,7 +43,8 @@ class PostCommentsController < ApplicationController
   def update
     respond_to do |format|
       if @post_comment.update(post_comment_params)
-        format.html { redirect_to @post_comment, notice: 'Post comment was successfully updated.' }
+        new_url = "/posts/" + @post_comment.post_id.to_s
+        format.html { redirect_to new_url, notice: 'Post comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @post_comment }
       else
         format.html { render :edit }
@@ -57,7 +58,8 @@ class PostCommentsController < ApplicationController
   def destroy
     @post_comment.destroy
     respond_to do |format|
-      format.html { redirect_to post_comments_url, notice: 'Post comment was successfully destroyed.' }
+      new_url = "/posts/" + @post_comment.post_id.to_s
+      format.html { redirect_to new_url, notice: 'Post comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
