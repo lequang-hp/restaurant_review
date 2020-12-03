@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+ #avatar {
+    /* make a square container */
+    width: 150px;
+    height: 150px;
+
+    object-fit: cover;
+
+    /* round the edges to a circle with border radius 1/2 container size */
+    border-radius: 50%;
+}
