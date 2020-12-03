@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :post_comments
   resources :res
+  resources :items
+  resources :post_comments
   resources :posts
   get 'users/show'
   get 'static_pages/home'

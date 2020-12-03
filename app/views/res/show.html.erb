@@ -27,5 +27,20 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Menu:</strong>
+  <% Item.all.each do |item|%>
+    <% if item.res_id == @re.id %>
+      <li>
+        <%= link_to item.name, item_path(item.id) %> (<i><%= item.price %>ドン</i>)
+      </li>
+    <% end %>
+  <% end %>
+  <br>
+  <%= link_to 'Add new item?', new_item_path(@re.id) %>
+</p>
+
+<hr>
+
 <%= link_to 'Edit', edit_re_path(@re) %> |
 <%= link_to 'Back', res_path %>

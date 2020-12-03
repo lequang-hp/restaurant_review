@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Res:</strong>
+  <%= @res[@item.res_id - 1].name %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @item.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @item.price %>
+</p>
+
+<p>
+  <strong>Detail:</strong>
+  <%= @item.detail %>
+</p>
+
+<p>
+  <% if @item.image.attached? %>
+    <%= image_tag @item.image %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', re_path(@item.res_id) %>

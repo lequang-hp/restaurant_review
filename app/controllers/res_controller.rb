@@ -11,6 +11,8 @@ class ResController < ApplicationController
   # GET /res/1
   # GET /res/1.json
   def show
+    @re = Re.find(params[:id])
+    @item = Item.new
   end
 
   # GET /res/new
