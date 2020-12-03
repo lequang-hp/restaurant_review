@@ -2,7 +2,7 @@
 
 <p>
   <% if @user.avatar.attached? %>
-    <%= image_tag @user.avatar %>
+    <%= image_tag @user.avatar, id: "avatar"%>
   <% end %>
 </p>
 
